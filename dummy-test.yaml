@@ -1,0 +1,38 @@
+- job:
+    name: dummy-test
+    project-type: freestyle
+    defaults: global
+    properties:
+        - authorization:
+            anonymous:
+                - job-read
+                - job-extended-read
+                - job-workspace
+            linaro:
+                - job-read
+                - job-extended-read
+                - job-build
+                - job-cancel
+        - build-discarder:
+            days-to-keep: 30
+            num-to-keep: 30
+            artifact-num-to-keep: 1
+    parameters:
+        - string:
+            name: DUMMY_TEST
+            default: 'master'
+    disabled: false
+    node: master
+    display-name: 'dummy test'
+    execution-strategy:
+        sequential: false
+    wrappers:
+        - timeout:
+            timeout: 180
+        - timestamps
+    builders:
+        - shell: |
+            #!/bin/bash -ex
+
+
+            echo "YAY success"
