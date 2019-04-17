@@ -43,6 +43,8 @@
 
             rm -rf ${WORKSPACE}/*
 
+            git clone https://github.com/roxell/kernelci-configs.git
+            cd kernelci-configs
             jenkins-jobs --version
             python run-jjb.py
     publishers:
