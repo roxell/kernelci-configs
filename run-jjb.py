@@ -38,6 +38,7 @@ jjb_args = [jjb_cmd]
 
 jjb_user = os.environ.get('JJB_USER')
 jjb_password = os.environ.get('JJB_PASSWORD')
+jjb_url = os.environ.get('JJB_URL')
 if jjb_user is not None and jjb_password is not None:
     jenkins_jobs_ini = ('[job_builder]\n'
                         'ignore_cache=True\n'
@@ -46,7 +47,7 @@ if jjb_user is not None and jjb_password is not None:
                         '[jenkins]\n'
                         'user=%s\n'
                         'password=%s\n'
-                        'url=http://192.168.40.40:8080\n' % (jjb_user, jjb_password))
+                        'url=%s\n' % (jjb_user, jjb_password, jjb_url))
     with open('jenkins_jobs.ini', 'w') as f:
         f.write(jenkins_jobs_ini)
     jjb_args.append('--conf=jenkins_jobs.ini')

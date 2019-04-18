@@ -29,6 +29,10 @@
                 variable: JJB_PASSWORD
         - credentials-binding:
             - text:
+                credential-id: JJB_URL
+                variable: JJB_URL
+        - credentials-binding:
+            - text:
                 credential-id: LAVA_USER
                 variable: LAVA_USER
         - credentials-binding:
