@@ -45,6 +45,10 @@
 
             git clone https://github.com/roxell/kernelci-configs.git
             cd kernelci-configs
+
+            export GIT_PREVIOUS_COMMIT=$(git rev-parse HEAD~1)
+            export GIT_COMMIT=$(git rev-parse HEAD)
+
             jenkins-jobs --version
             python run-jjb.py
     publishers:
