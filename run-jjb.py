@@ -46,7 +46,7 @@ if jjb_user is not None and jjb_password is not None:
                         '[jenkins]\n'
                         'user=%s\n'
                         'password=%s\n'
-                        'url=http://192.168.40.40/\n' % (jjb_user, jjb_password))
+                        'url=http://192.168.40.40:8080\n' % (jjb_user, jjb_password))
     with open('jenkins_jobs.ini', 'w') as f:
         f.write(jenkins_jobs_ini)
     jjb_args.append('--conf=jenkins_jobs.ini')
