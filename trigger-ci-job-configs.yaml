@@ -56,8 +56,6 @@
 
             set -e
 
-            rm -rf ${WORKSPACE}/*
-
             cd configs
 
             export GIT_PREVIOUS_COMMIT=$(git rev-parse HEAD~1)
